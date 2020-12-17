@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Security V3</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="title_activity_tcalc">Time Calculator</string>
+
+    <string-array name="topics">
+        <item>Security +</item>
+        <item>Forensics</item>
+        <item>Tools</item>
+    </string-array>
+
+    <string-array name="programmingTopics">
+        <item>Python</item>
+        <item>java</item>
+        <item>C#</item>
+        <item>Javascript</item>
+        <item>HTML</item>
+        <item>CSS</item>
+        <item>Linux Command</item>
+        <item>Windows CMD</item>
+        <item>Powershell</item>
+    </string-array>
+</resources>
