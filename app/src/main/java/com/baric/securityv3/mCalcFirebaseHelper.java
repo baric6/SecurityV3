@@ -123,7 +123,7 @@ public class mCalcFirebaseHelper {
                     //selects the class i want to use as a model
                     mCalcdbModel notes = ds.getValue(mCalcdbModel.class);
                     //sets keys to there correlating objects
-                    notes.setStartTime(ds.getKey());
+                    notes.setId(ds.getKey());
                     //add object to array of objects
                     note.add(notes);
 

@@ -95,8 +95,6 @@ public class Security extends Fragment {
                 Toast.makeText(getContext(), "3 " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
-
     }
 
     private ArrayList<ListSecDBModel> fetchData() {

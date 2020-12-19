@@ -16,10 +16,11 @@ public class mCalcRecyclerHolder extends RecyclerView.ViewHolder {
     public TextView endPlace;
     public TextView totalMiles;
     
+    
 
     public mCalcRecyclerHolder(final View itemView, final mRecyclerAdapter.OnItemClickListener clickListener) {
         super(itemView);
-
+        
         timeStart = itemView.findViewById(R.id.timeStart);
         milesStart = itemView.findViewById(R.id.milesStart);
         startPlace = itemView.findViewById(R.id.startPlace);

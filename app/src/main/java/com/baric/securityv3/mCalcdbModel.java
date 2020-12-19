@@ -9,6 +9,19 @@ public class mCalcdbModel {
     private String endMiles;
     private String endPlace;
     private String totalMiles;
+    private String id;
+
+    public mCalcdbModel() {
+        //default constructor
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public mCalcdbModel(String startTime, String startmiles, String startPlace, String endTime, String endMiles, String endPlace, String totalMiles) {
         this.startTime = startTime;
