@@ -40,9 +40,9 @@ public class Programming extends Fragment {
     private final ArrayList<ProgrammingdbModel> main1 = new ArrayList<>();
     private FireBaseHelper helper;
     private DatabaseReference reference;
-    public Programming() {
+    //public Programming() {
         // Required empty public constructor
-    }
+    //}
 
     /**
      * Use this factory method to create a new instance of
@@ -69,19 +69,6 @@ public class Programming extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_programming, container, false);
-
-        recyclerView = view.findViewById(R.id.programmingRecyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new ProgrammingRecyclerAdapter(getContext(), main1);
-        recyclerView.setAdapter(adapter);
 
         reference = FirebaseDatabase.getInstance().getReference().child("Programming");
         reference.keepSynced(true);
@@ -106,12 +93,8 @@ public class Programming extends Fragment {
                 Toast.makeText(getContext(), "3 " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
-
-        return view;
     }
-
-
+    
     private ArrayList<ProgrammingdbModel> fetchData() {
         //need this wrapper helps to talk to the firebase db
         reference.addValueEventListener(new ValueEventListener() {
@@ -145,5 +128,19 @@ public class Programming extends Fragment {
         return main1;
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_programming, container, false);
+
+        recyclerView = view.findViewById(R.id.programmingRecyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new ProgrammingRecyclerAdapter(getContext(), main1);
+        recyclerView.setAdapter(adapter);
+
+        return view;
+    }
 
 }

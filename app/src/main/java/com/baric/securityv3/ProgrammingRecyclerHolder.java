@@ -13,7 +13,7 @@ public class ProgrammingRecyclerHolder extends RecyclerView.ViewHolder {
     public TextView programmingCardComment;
     public WebView ProgrammingCardWebview;
 
-    public ProgrammingRecyclerHolder(final View itemView, final RecyclerAdapter.OnItemClickListener clickListener) {
+    public ProgrammingRecyclerHolder(final View itemView, final ProgrammingRecyclerAdapter.OnItemClickListener clickListener) {
         super(itemView);
 
         programmingCardTopic = itemView.findViewById(R.id.programmingCardTopic);

@@ -25,7 +25,7 @@ public class ProgrammingRecyclerAdapter extends RecyclerView.Adapter<Programming
     private final FireBaseHelper helper = new FireBaseHelper(ref);
 
     //interface for on card click
-    private RecyclerAdapter.OnItemClickListener mClickListener;
+    private ProgrammingRecyclerAdapter.OnItemClickListener mClickListener;
     private final Filter subFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
@@ -67,7 +67,7 @@ public class ProgrammingRecyclerAdapter extends RecyclerView.Adapter<Programming
     }
 
     //set on card click
-    public void setOnItemClickLitener(RecyclerAdapter.OnItemClickListener clickLitener) {
+    public void setOnItemClickLitener(ProgrammingRecyclerAdapter.OnItemClickListener clickLitener) {
         mClickListener = clickLitener;
     }
 
