@@ -1,5 +1,6 @@
 package com.baric.securityv3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,6 +96,9 @@ public class Security extends Fragment {
                 Toast.makeText(getContext(), "3 " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+        
+        
+        
     }
 
     private ArrayList<ListSecDBModel> fetchData() {
@@ -140,6 +144,20 @@ public class Security extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new RecyclerAdapter(getContext(), main);
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickLitener(new RecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                Intent toUpdateSec = new Intent(getContext(), ActivityUpdateSecurity.class);
+                toUpdateSec.putExtra("idSec", main.get(pos).getId());
+                toUpdateSec.putExtra("titSec", main.get(pos).getTitle());
+                toUpdateSec.putExtra("disSec", main.get(pos).getComment());
+                toUpdateSec.putExtra("topicSec", main.get(pos).getTopic());
+                toUpdateSec.putExtra("urlSec", main.get(pos).getkeyRefrence());
+                startActivity(toUpdateSec);
+            }
+        });
+        
 
         return view;
 
