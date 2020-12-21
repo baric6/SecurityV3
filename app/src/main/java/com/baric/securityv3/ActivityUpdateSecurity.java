@@ -63,10 +63,10 @@ public class ActivityUpdateSecurity extends AppCompatActivity {
 
                 //makes a new object to add to database
                 ListSecDBModel newEntry1 = new ListSecDBModel();
-                newEntry1.setTitle(titSec);
-                newEntry1.setComment(disSec);
-                newEntry1.setkeyRefrence(urlSec);
-                newEntry1.setTopic(topicSec);
+                newEntry1.setTitle(secTitle.getText().toString());
+                newEntry1.setComment(secName.getText().toString());
+                newEntry1.setkeyRefrence(secUrl.getText().toString());
+                newEntry1.setTopic(secDetails.getText().toString());
                 
                 
                 helper.update(idz,newEntry1);
