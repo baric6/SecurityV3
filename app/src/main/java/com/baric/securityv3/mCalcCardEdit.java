@@ -23,7 +23,7 @@ public class mCalcCardEdit extends AppCompatActivity {
     private EditText mPlace;
     private EditText mStopTime;
     private EditText mStopMiles;
-    private EditText upEndPlace;
+    private EditText mEndPlace;
     
     
     private Button mRecord;
@@ -39,7 +39,7 @@ public class mCalcCardEdit extends AppCompatActivity {
         mPlace = findViewById(R.id.mPlace);
         mStopTime = findViewById(R.id.upEndTime);
         mStopMiles = findViewById(R.id.upEndMiles);
-        upEndPlace = findViewById(R.id.upEndPlace);
+        mEndPlace = findViewById(R.id.upEndPlace);
 
         mRecord = findViewById(R.id.mRecord);
         delRecord = findViewById(R.id.delRecord);
@@ -53,7 +53,7 @@ public class mCalcCardEdit extends AppCompatActivity {
         String startPlace =  fromMcard.getStringExtra("startPlace");
         String endTime = fromMcard.getStringExtra("endTime");
         String endMiles = fromMcard.getStringExtra("endMiles");
-        //String endPlace = fromMcard.getStringExtra("endPlace");
+        String endPlace = fromMcard.getStringExtra("endPlace");
         String total = fromMcard.getStringExtra("total");
 
         Date currentTime = Calendar.getInstance().getTime();
@@ -63,6 +63,7 @@ public class mCalcCardEdit extends AppCompatActivity {
         mPlace.setText(startPlace);
         mStopTime.setText(currentTime.toString());
         mStopMiles.setText(endMiles);
+        mEndPlace.setText(endPlace);
         
         
 
@@ -96,7 +97,7 @@ public class mCalcCardEdit extends AppCompatActivity {
                 newEntry.setStartPlace(mPlace.getText().toString());
                 newEntry.setEndTime(mStopTime.getText().toString());
                 newEntry.setEndMiles(mStopMiles.getText().toString());
-                newEntry.setEndPlace(upEndPlace.getText().toString());
+                newEntry.setEndPlace(mEndPlace.getText().toString());
                 newEntry.setTotalMiles(String.valueOf(Integer.valueOf(newEntry.getEndMiles()) + Integer.valueOf(newEntry.getStartmiles())*-1));
 
                 //call the helper method to save entry
