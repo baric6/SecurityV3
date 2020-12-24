@@ -1,5 +1,6 @@
 package com.baric.securityv3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -139,6 +140,19 @@ public class Programming extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new ProgrammingRecyclerAdapter(getContext(), main1);
         recyclerView.setAdapter(adapter);
+        
+        adapter.setOnItemClickLitener(new ProgrammingRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                Intent toUpdateSec = new Intent(getContext(), ProgrammingUpdateActivity.class);
+                toUpdateSec.putExtra("idPro", main1.get(pos).getId());
+                toUpdateSec.putExtra("titPro", main1.get(pos).getTitle());
+                toUpdateSec.putExtra("disPro", main1.get(pos).getComment());
+                toUpdateSec.putExtra("topicPro", main1.get(pos).getTopic());
+                toUpdateSec.putExtra("urlPro", main1.get(pos).getKeyRefrence());
+                startActivity(toUpdateSec);
+            }
+        });
 
         return view;
     }

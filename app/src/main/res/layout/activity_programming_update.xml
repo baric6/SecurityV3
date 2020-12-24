@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProgrammingUpdateActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/proPos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="33dp"
+                android:textAlignment="center"
+                android:text="TextView" />
+
+            <EditText
+                android:id="@+id/proTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="title" />
+
+            <EditText
+                android:id="@+id/proName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="name" />
+
+            <EditText
+                android:id="@+id/proDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="details" />
+
+            <EditText
+                android:id="@+id/proUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="url" />
+
+            <Button
+                android:id="@+id/proUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="update" />
+
+            <Button
+                android:id="@+id/proDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="delete" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
