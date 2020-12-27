@@ -23,6 +23,8 @@ public class ActivityUpdateSecurity extends AppCompatActivity {
     private EditText secUrl;
     private Button secUpdate;
     private Button secDelete;
+    private Button secTestWeb;
+    private TouchyWebView secUpdateWebview;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class ActivityUpdateSecurity extends AppCompatActivity {
         secName = findViewById(R.id.secName);
         secDetails = findViewById(R.id.secDetails);
         secUrl = findViewById(R.id.secUrl);
+        secTestWeb = findViewById(R.id.secTestsWeb);
         
         secUpdate = findViewById(R.id.secUpdate);
         secDelete = findViewById(R.id.secDelete);
@@ -50,7 +53,18 @@ public class ActivityUpdateSecurity extends AppCompatActivity {
         secName.setText(disSec);
         secUrl.setText(urlSec);
         secDetails.setText(topicSec);
+
+        secUpdateWebview = findViewById(R.id.secUpdateWebview);
+        secUpdateWebview.loadUrl(secUrl.getText().toString());
         
+        
+        secTestWeb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "test clicked", Toast.LENGTH_SHORT).show();
+                secUpdateWebview.loadUrl(secUrl.getText().toString());
+            }
+        });
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("notes");
         final FireBaseHelper helper = new FireBaseHelper(ref);

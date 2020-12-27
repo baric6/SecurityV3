@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/design_default_color_primary"
+    android:background="@color/black"
     >
 
 
@@ -23,7 +23,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
         android:layout_margin="10dp"
-        android:id="@+id/cardView">
+        android:id="@+id/cardView"
+        android:background="#808080"
+        >
 
 
         <LinearLayout
@@ -58,13 +60,12 @@
                 android:layout_weight="1"/>
 
             <com.baric.securityv3.TouchyWebView
-                android:layout_height="405dp"
-                android:layout_width="match_parent"
                 android:id="@+id/cardWebview"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="405dp"
+                android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:focusable="true">
-            </com.baric.securityv3.TouchyWebView>
+                android:padding="10dp"></com.baric.securityv3.TouchyWebView>
 
 
 
