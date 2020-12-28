@@ -52,7 +52,7 @@ public class ProgrammingUpdateActivity extends AppCompatActivity {
 
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Programming");
-        final FireBaseHelper helper = new FireBaseHelper(ref);
+        final ProgrammingHelper helper = new ProgrammingHelper(ref);
 
 
         proUpdate.setOnClickListener(new View.OnClickListener() {
@@ -61,10 +61,10 @@ public class ProgrammingUpdateActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Update Clicked", Toast.LENGTH_SHORT).show();
 
                 //makes a new object to add to database
-                ListSecDBModel newEntry1 = new ListSecDBModel();
+                ProgrammingdbModel newEntry1 = new ProgrammingdbModel();
                 newEntry1.setTitle(proTitle.getText().toString());
                 newEntry1.setComment(proName.getText().toString());
-                newEntry1.setkeyRefrence(proUrl.getText().toString());
+                newEntry1.setKeyRefrence(proUrl.getText().toString());
                 newEntry1.setTopic(proDetails.getText().toString());
 
 

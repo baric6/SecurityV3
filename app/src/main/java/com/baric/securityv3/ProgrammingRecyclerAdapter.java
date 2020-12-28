@@ -22,21 +22,21 @@ public class ProgrammingRecyclerAdapter extends RecyclerView.Adapter<Programming
 
     //firebase
     private final DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Programming");
-    private final FireBaseHelper helper = new FireBaseHelper(ref);
+    private final ProgrammingHelper helper = new ProgrammingHelper(ref);
 
     //interface for on card click
     private ProgrammingRecyclerAdapter.OnItemClickListener mClickListener;
     private final Filter subFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<ListSecDBModel> filterList = new ArrayList<>();
+            ArrayList<ProgrammingdbModel> filterList = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
                 filterList.addAll(helper.retrieve());
             } else {
                 String filterPattern = constraint.toString().trim().toLowerCase();
 
-                for (ListSecDBModel item : helper.retrieve()) {
+                for (ProgrammingdbModel item : helper.retrieve()) {
                     if (item.getTitle().toLowerCase().contains(filterPattern)) {
                         filterList.add(item);
 

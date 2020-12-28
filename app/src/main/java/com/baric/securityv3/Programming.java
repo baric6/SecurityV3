@@ -2,9 +2,12 @@ package com.baric.securityv3;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,8 +42,10 @@ public class Programming extends Fragment {
     private RecyclerView recyclerView;
     private ProgrammingRecyclerAdapter adapter;
     private final ArrayList<ProgrammingdbModel> main1 = new ArrayList<>();
-    private FireBaseHelper helper;
+    private ProgrammingHelper helper;
     private DatabaseReference reference;
+    private EditText proSearch;
+    
     //public Programming() {
         // Required empty public constructor
     //}
@@ -73,7 +78,7 @@ public class Programming extends Fragment {
 
         reference = FirebaseDatabase.getInstance().getReference().child("Programming");
         reference.keepSynced(true);
-        helper = new FireBaseHelper(reference);
+        helper = new ProgrammingHelper(reference);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -151,6 +156,26 @@ public class Programming extends Fragment {
                 toUpdateSec.putExtra("topicPro", main1.get(pos).getTopic());
                 toUpdateSec.putExtra("urlPro", main1.get(pos).getKeyRefrence());
                 startActivity(toUpdateSec);
+            }
+        });
+
+        proSearch = view.findViewById(R.id.proSearch);
+        proSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                adapter.getFilter().filter(s);
+                adapter.notifyDataSetChanged();
+
             }
         });
 

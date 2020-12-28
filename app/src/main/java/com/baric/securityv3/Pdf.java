@@ -2,9 +2,12 @@ package com.baric.securityv3;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,6 +43,9 @@ public class Pdf extends Fragment {
     private StorageAdapter adapter;
     private DatabaseReference reference;
     private final ArrayList<UrlDataModel> main = new ArrayList<>();
+    private EditText pdfSearch;
+    
+    
     public Pdf() {
         // Required empty public constructor
     }
@@ -165,6 +171,28 @@ public class Pdf extends Fragment {
                 startActivity(viewData);
             }
         });
+
+        pdfSearch = view.findViewById(R.id.pdfSearch);
+        pdfSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                adapter.getFilter().filter(s);
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+        
+        
         return view;
     }
 }

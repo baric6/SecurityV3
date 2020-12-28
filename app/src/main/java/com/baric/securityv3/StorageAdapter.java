@@ -4,20 +4,63 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
-public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.StorageHolder> {
+public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.StorageHolder> implements Filterable {
 
     private final RecyclerView recyclerView;
     private final Context context;
     private final ArrayList<UrlDataModel> items;
     //interface for on card click
     private OnItemClickListener mClickListener;
+
+
+    private final DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("storageLinks");
+    private final StorageHelper helper = new StorageHelper(ref);
+    
+    private final Filter subFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<UrlDataModel> filterList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filterList.addAll(helper.retrieve());
+            } else {
+                String filterPattern = constraint.toString().trim().toLowerCase();
+
+                for (UrlDataModel item : helper.retrieve()) {
+                    if (item.getFileName().toLowerCase().contains(filterPattern)) {
+                        filterList.add(item);
+
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filterList;
+
+            return filterResults;
+        }
+
+        //this refreshes the recyclerView
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            items.clear();
+            items.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
 
     //recyclerView
@@ -52,6 +95,11 @@ public class StorageAdapter extends RecyclerView.Adapter<StorageAdapter.StorageH
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return subFilter;
     }
 
     public interface OnItemClickListener {
