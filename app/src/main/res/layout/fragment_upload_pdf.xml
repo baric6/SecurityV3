@@ -21,25 +21,29 @@
 
     <Button
         android:id="@+id/btnChooseFile"
-        android:layout_width="416dp"
+        android:layout_width="match_parent"
         android:layout_height="78dp"
         android:layout_marginBottom="28dp"
         android:text="ChooseFile"
         app:layout_constraintBottom_toTopOf="@+id/path"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" 
+        android:layout_margin="16dp"
+        />
 
     <Button
         android:id="@+id/btnUpload"
-        android:layout_width="424dp"
+        android:layout_width="match_parent"
         android:layout_height="74dp"
         android:layout_marginBottom="68dp"
         android:text="uploadFile"
         app:layout_constraintBottom_toTopOf="@+id/uploadLoading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/path" />
+        app:layout_constraintTop_toBottomOf="@+id/path"
+        android:layout_margin="16dp"
+        />
 
     <ProgressBar
         android:id="@+id/uploadLoading"

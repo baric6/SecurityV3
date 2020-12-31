@@ -20,46 +20,54 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            >
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="181dp"
-                android:layout_height="172dp"
+                android:layout_width="197dp"
+                android:layout_height="184dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/adobe_pdf_01" />
+                app:srcCompat="@drawable/adobe_pdf_01" 
+                android:layout_marginBottom="5dp"
+                />
 
             <EditText
                 android:id="@+id/modTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="43dp"
+                android:background="@drawable/rounded_edittext"
                 android:ems="10"
                 android:hint="Title"
+                android:layout_margin="3dp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/modUrl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="43dp"
                 android:ems="10"
                 android:hint="Url"
+                android:layout_margin="3dp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_edittext"
                 android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/modComment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="43dp"
                 android:ems="10"
                 android:hint="Comment"
+                android:layout_margin="3dp"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_edittext"
                 android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Topic"
-                android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/modSpinner"
@@ -69,8 +77,10 @@
 
             <Button
                 android:id="@+id/modAdd"
-                android:layout_width="411dp"
-                android:layout_height="wrap_content"
+                android:layout_width="195dp"
+                android:layout_height="72dp"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="add" />
 
