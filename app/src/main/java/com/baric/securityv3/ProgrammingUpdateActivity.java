@@ -22,6 +22,8 @@ public class ProgrammingUpdateActivity extends AppCompatActivity {
     private EditText proUrl;
     private Button proUpdate;
     private Button proDelete;
+    private Button proTestWebView;
+    private TouchyWebView proUpdateWeb;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,26 +31,38 @@ public class ProgrammingUpdateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_programming_update);
 
         Intent fromSecCard = getIntent();
-        String idz =fromSecCard.getStringExtra("idPro");
-        String titSec = fromSecCard.getStringExtra("titPro");
-        String disSec = fromSecCard.getStringExtra("disPro");
-        String topicSec = fromSecCard.getStringExtra("topicPro");
-        String urlSec = fromSecCard.getStringExtra("urlPro");
+        String idPro =fromSecCard.getStringExtra("idPro");
+        String titPro = fromSecCard.getStringExtra("titPro");
+        String disPro = fromSecCard.getStringExtra("disPro");
+        String topicPro = fromSecCard.getStringExtra("topicPro");
+        String urlPro = fromSecCard.getStringExtra("urlPro");
 
         id = findViewById(R.id.proPos);
         proTitle = findViewById(R.id.proTitle);
         proName = findViewById(R.id.proName);
         proDetails = findViewById(R.id.proDetails);
         proUrl = findViewById(R.id.proUrl);
+        proTestWebView = findViewById(R.id.proTestWebView);
+        proUpdateWeb = findViewById(R.id.proUpdateWeb);
 
         proUpdate = findViewById(R.id.proUpdate);
         proDelete = findViewById(R.id.proDelete);
 
-        id.setText(idz);
-        proTitle.setText(titSec);
-        proName.setText(disSec);
-        proUrl.setText(urlSec);
-        proDetails.setText(topicSec);
+        id.setText(idPro);
+        proTitle.setText(titPro);
+        proName.setText(disPro);
+        proUrl.setText(urlPro);
+        proDetails.setText(topicPro);
+
+        proUpdateWeb.loadUrl(proUrl.getText().toString());
+
+        proTestWebView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                proUpdateWeb.loadUrl(proUrl.getText().toString());
+            }
+        });
+        
 
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Programming");
@@ -68,7 +82,7 @@ public class ProgrammingUpdateActivity extends AppCompatActivity {
                 newEntry1.setTopic(proDetails.getText().toString());
 
 
-                helper.update(idz,newEntry1);
+                helper.update(idPro,newEntry1);
 
                 finish();
             }
@@ -79,7 +93,7 @@ public class ProgrammingUpdateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Delete Clicked", Toast.LENGTH_SHORT).show();
 
-                helper.delete(idz);
+                helper.delete(idPro);
 
                 finish();
             }
