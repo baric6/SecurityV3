@@ -3,6 +3,7 @@ package com.baric.securityv3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -173,6 +174,7 @@ public class Programming extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
+                proSearch.setFilters(new InputFilter[]{new ValidateFilter()});
                 adapter.getFilter().filter(s);
                 adapter.notifyDataSetChanged();
 
