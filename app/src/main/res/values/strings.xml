@@ -11,7 +11,9 @@
 
     <string-array name="topics">
         <item>Security +</item>
-        <item>Forensics</item>
+        <item>Network+</item>
+        <item>Pentest+</item>
+        <item>Forensics</item> 
         <item>Tools</item>
     </string-array>
 
